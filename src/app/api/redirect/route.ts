@@ -17,7 +17,8 @@ export async function GET(request: NextApiRequest) {
   } catch (error) {
     redirect("/?error");
   }
+  const team_id = request.nextUrl.searchParams.get("team_id");
   redirect(
-    `https://miro.com/app-install-completed/?client_id=${process.env.MIRO_CLIENT_ID}&team_id=${request.query.team_id}`,
+    `https://miro.com/app-install-completed/?client_id=${process.env.MIRO_CLIENT_ID}&team_id=${team_id}`,
   );
 }
